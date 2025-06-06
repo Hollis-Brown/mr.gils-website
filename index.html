@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Gil's & Grill - Delicious Afghan Cuisine</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #006400;  /* Afghan flag green */
+            --secondary-color: #BF0000; /* Afghan flag red */
+            --accent-color: #000000;   /* Afghan flag black */
+            --text-color: #333333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 76px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 25px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 0 auto 40px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            padding: 15px 0;
+            transition: var(--transition);
+            background: transparent !important;
+        }
+
+        .navbar .container {
+            background-color: var(--white);
+            border-radius: 50px;
+            padding: 10px 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-right: auto;
+        }
+
+        .logo-text {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: 700;
+        }
+
+        .ampersand {
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+
+        .navbar-nav {
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            padding: 8px 20px !important;
+            position: relative;
+            color: var(--text-color) !important;
+            border-radius: 25px;
+            transition: var(--transition);
+            margin: 0 5px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: var(--primary-color);
+            color: var(--white) !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link::after {
+            display: none;
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 4px 8px;
+            background-color: var(--primary-color);
+            border-radius: 6px;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Mobile navbar styles */
+        @media (max-width: 991px) {
+            .navbar .container {
+                border-radius: 20px;
+                padding: 15px 20px;
+            }
+            
+            .navbar-collapse {
+                margin-top: 15px;
+                padding-top: 15px;
+                border-top: 1px solid var(--light-gray);
+            }
+            
+            .navbar-nav {
+                text-align: center;
+            }
+            
+            .nav-link {
+                margin: 5px 0;
+                border-radius: 8px;
+            }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 100px 0 60px;
+            background-color: var(--light-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        .hero-section .text-primary {
+            color: var(--primary-color) !important;
+        }
+
+        .hero-image-container {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .hero-image {
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image-container:hover .hero-image {
+            transform: scale(1.05);
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 10px 15px;
+            border-radius: 30px;
+            font-weight: 500;
+            box-shadow: var(--box-shadow);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Afghan Flag */
+        .flag-container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .afghan-flag {
+            display: flex;
+            width: 120px;
+            height: 60px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+        }
+
+        .afghan-flag .black,
+        .afghan-flag .red,
+        .afghan-flag .green {
+            flex: 1;
+            height: 100%;
+        }
+
+        .afghan-flag .black {
+            background-color: #000000;
+        }
+
+        .afghan-flag .red {
+            background-color: #BF0000;
+        }
+
+        .afghan-flag .green {
+            background-color: #006400;
+        }
+
+        .afghan-flag-large {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            width: 90px;
+            height: 45px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+            z-index: 1;
+            transform: rotate(5deg);
+        }
+
+        .afghan-flag-large .black,
+        .afghan-flag-large .red,
+        .afghan-flag-large .green {
+            flex: 1;
+            height: 100%;
+        }
+
+        .afghan-flag-large .black {
+            background-color: #000000;
+        }
+
+        .afghan-flag-large .red {
+            background-color: #BF0000;
+        }
+
+        .afghan-flag-large .green {
+            background-color: #006400;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--light-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .feature-item:hover .feature-icon {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: rotate(360deg);
+        }
+
+        .feature-item h5 {
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+
+        /* Offer Section */
+        .offer-section {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        .category-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+
+        .product-card, .menu-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .product-card:hover, .menu-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image, .menu-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-image img, .menu-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image img,
+        .menu-card:hover .menu-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info, .menu-info {
+            padding: 20px;
+        }
+
+        .product-info h4, .menu-info h4 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            display: block;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
+        .special-dish-section {
+            margin-top: 60px;
+            padding: 30px;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .special-dish-content {
+            padding: 20px;
+        }
+
+        .special-dish-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .testimonial-card {
+            background-color: var(--light-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            height: 100%;
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .quote-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .testimonial-content p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author h5 {
+            margin-bottom: 5px;
+        }
+
+        .stars {
+            color: #FFD700;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        .about-image-container {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .contact-info {
+            padding: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .contact-item h5 {
+            margin-bottom: 5px;
+        }
+
+        .contact-form .form-control {
+            padding: 12px 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            border: 1px solid var(--light-gray);
+        }
+
+        .contact-form .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer-section {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .newsletter-form .form-control {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--white);
+            padding: 12px 15px;
+        }
+
+        .newsletter-form .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .newsletter-form .btn {
+            padding: 12px 15px;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--box-shadow);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991px) {
+            .hero-section h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-section {
+                padding: 80px 0 40px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-section h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-section {
+                padding: 60px 0 30px;
+                text-align: center;
+            }
+            
+            .flag-container {
+                display: flex;
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .feature-item, .product-card, .menu-card, .testimonial-card {
+                margin-bottom: 30px;
+            }
+            
+            .special-dish-content {
+                padding: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span class="logo-text">Mr. Gil's <span class="ampersand">&</span> Grill</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                    <h1 class="mb-2">Authentic</h1>
+                    <h1 class="text-primary mb-2">Afghan</h1>
+                    <h1 class="mb-4">Cuisine & Grocery!</h1>
+                    <p class="lead mb-4">At Mr. Gil's & Grill, we bring the rich flavors of Afghanistan to your table.</p>
+                    <div class="flag-container">
+                        <div class="afghan-flag">
+                            <div class="black"></div>
+                            <div class="red"></div>
+                            <div class="green"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="hero-image-container">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kabuli-palau.jpg-XHn4hqAlqfS2w6iCs5SsozmcbDw7Qf.jpeg" alt="Delicious Kabuli Pulao" class="img-fluid rounded hero-image">
+                        <div class="hero-badge">
+                            Authentic foods your family will love!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h5>Authentic</h5>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <h5>Diverse</h5>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h5>Fresh</h5>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h5>Exquisite</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer Section -->
+    <section class="offer-section" id="products">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">What We Offer</h2>
+            <div class="section-divider"></div>
+            
+            <!-- Grocery Items -->
+            <h3 class="category-title" data-aos="fade-up">Grocery Items</h3>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1596040033229-a9821ebc227d?w=300&h=200&fit=crop" alt="Spices" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h4>Afghan Spices</h4>
+                            <p>Authentic spices imported directly from Afghanistan.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" alt="Bread" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h4>Fresh Naan</h4>
+                            <p>Traditional Afghan bread baked fresh daily.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop" alt="Sweets" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h4>Afghan Sweets</h4>
+                            <p>Delicious traditional desserts and treats.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hot Food Menu -->
+            <h3 class="category-title mt-5" id="menu" data-aos="fade-up">Hot Food Menu</h3>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="menu-card">
+                        <div class="menu-image">
+                            <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?w=300&h=200&fit=crop" alt="Afghan Kebab" class="img-fluid">
+                        </div>
+                        <div class="menu-info">
+                            <h4>Afghan Kebab</h4>
+                            <p>Tender marinated meat skewers grilled to perfection.</p>
+                            <span class="price">$14.99</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="menu-card">
+                        <div class="menu-image">
+                            <img src="https://images.unsplash.com/photo-1563379091339-03246963d25a?w=300&h=200&fit=crop" alt="Kabuli Pulao" class="img-fluid">
+                        </div>
+                        <div class="menu-info">
+                            <h4>Kabuli Pulao</h4>
+                            <p>Fragrant rice with tender meat, carrots, and raisins.</p>
+                            <span class="price">$16.99</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="menu-card">
+                        <div class="menu-image">
+                            <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop" alt="Afghan Wrap" class="img-fluid">
+                        </div>
+                        <div class="menu-info">
+                            <h4>Afghan Wrap</h4>
+                            <p>Delicious meat wrap with fresh vegetables and sauce.</p>
+                            <span class="price">$12.99</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Special Dishes -->
+            <div class="special-dish-section" data-aos="fade-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&h=400&fit=crop" alt="Special Kebab" class="img-fluid rounded">
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="special-dish-content">
+                            <h3>Our Special Kebabs</h3>
+                            <p>Experience the authentic taste of Afghanistan with our signature kebabs, prepared using traditional recipes passed down through generations.</p>
+                            <p>Each kebab is marinated with our special blend of spices and grilled to perfection.</p>
+                            <a href="#" class="btn btn-primary mt-3">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section
