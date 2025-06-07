@@ -100,7 +100,7 @@ export default function Home() {
       <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
         <div className="container">
           <a className="navbar-brand" href="#">
-            <span className="logo-text">
+            <span className="logo-text fs-1">
               Mr. Gil's <span className="ampersand">&</span> Grill
             </span>
           </a>
@@ -504,7 +504,7 @@ export default function Home() {
                     <p>(209) 409-8447</p>
                   </div>
                 </div>
-               
+
                 <div className="contact-item">
                   <i className="fas fa-clock"></i>
                   <div>
