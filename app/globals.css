@@ -81,9 +81,17 @@ a:hover {
   margin-top: 20px; /* Add margin-top */
 }
 
+.navbar.navbar-expand-lg.navbar-light.fixed-top.shadow-sm .container {
+  background-color: transparent;
+  border-radius: 50px;
+  padding: 10px 30px;
+  box-shadow: none;
+  border: none;
+}
+
 .navbar .container {
   background-color: var(--white);
-  border-radius: 50px; /* Add border radius */
+  border-radius: 50px;
   padding: 10px 30px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.05);
@@ -117,7 +125,7 @@ a:hover {
   color: var(--text-color) !important; /* Make sure links are visible */
   border-radius: 25px;
   transition: var(--transition);
-  margin: 0 5px;
+  margin: 15px 5px;
   display: block !important; /* Ensure links are displayed */
   visibility: visible !important; /* Force visibility */
 }
@@ -151,8 +159,10 @@ a:hover {
 /* Mobile navbar styles */
 @media (max-width: 991px) {
   .navbar .container {
-    border-radius: 20px;
-    padding: 15px 20px;
+     background-color: transparent !important; /* Remove container background */
+  padding: 10px 30px;
+  border: none !important; /* Remove border */
+  box-shadow: none !important; /* Remove shadow */
   }
 
   .navbar-collapse {
