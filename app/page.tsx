@@ -101,7 +101,7 @@ export default function Home() {
         <div className="container">
           <a className="navbar-brand" href="#">
             <span className="logo-text fs-1">
-              Mr. Gil's <span className="ampersand">&</span> Grill
+              Mr. Gil's Market<span className="ampersand"> &</span> Grill
             </span>
           </a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -152,7 +152,7 @@ export default function Home() {
               <h1 className="mb-2">Authentic</h1>
               <h1 className="text-primary mb-2">Afghan</h1>
               <h1 className="mb-4">Cuisine & Grocery!</h1>
-              <p className="lead mb-4">At Mr. Gil's & Grill, we bring the rich flavors of Afghanistan to your table.</p>
+              <p className="lead mb-4">At Mr. Gil's Market & Grill, we bring the rich flavors of Afghanistan to your table.</p>
               <div className="flag-container">
                 <div className="afghan-flag">
                   <div className="black"></div>

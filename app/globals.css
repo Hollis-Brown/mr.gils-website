@@ -18,6 +18,12 @@
   --transition: all 0.3s ease;
 }
 
+.kebab-img {
+  margin-left: 31px;
+  margin-right: 3px;
+}
+
+
 body {
   font-family: "Poppins", sans-serif;
   color: var(--text-color);
